@@ -47,6 +47,10 @@ const parseVarDecl = (data, functionParams) => {
     return true;
 };
 
+const parseUnary = (data, params) => {
+    return eval(data.operator + parseExp(data.argument, params));
+};
+
 const parseExpressionStatement = (data, functionParams) => parseExp(data.expression, functionParams);
 
 const handleArrBody = (data, functionParams) => data.elements.map(e => parseExp(e, functionParams)).join(',');
@@ -174,7 +178,7 @@ const parsingFunctions = {
     'Literal': literal,
     'MemberExpression': memberExp,
     'FunctionDeclaration': parseFunction,
-    
+    'UnaryExpression': parseUnary,
 };
 
 //CREATE CFG FUNCTIONS

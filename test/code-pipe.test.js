@@ -31,7 +31,7 @@ describe('color nodes', () => {
         let code =
             'function checker(x,y){\n' +
             '   var bool = false;\n' +
-            '   if (x > 13 && y < 0){\n' +
+            '   if (x > -13 && y < 0){\n' +
             '       y = 1;\n' +
             '       x = 3;\n' +
             '   } else\n' +
